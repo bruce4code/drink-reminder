@@ -1,0 +1,10 @@
+[project]
+name = "reminder"
+version = "0.1.0"
+description = "喝水提醒程序 - 14:00后每30分钟提醒喝水，统计每日喝水次数"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+reminder = "src.reminder.drink_reminder:main"
