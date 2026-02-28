@@ -30,8 +30,8 @@
 pip install uv
 
 # 克隆项目
-git clone https://github.com/your-username/reminder.git
-cd reminder
+git clone https://github.com/bruce4code/drink-reminder.git
+cd drink-reminder
 
 # 同步依赖
 py -3 -m uv sync
@@ -40,8 +40,8 @@ py -3 -m uv sync
 ### 方法二：直接克隆
 
 ```bash
-git clone https://github.com/your-username/reminder.git
-cd reminder
+git clone https://github.com/bruce4code/drink-reminder.git
+cd drink-reminder
 ```
 
 ## 🚀 运行
@@ -147,8 +147,8 @@ reminder/
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/reminder.git
-cd reminder
+git clone https://github.com/bruce4code/drink-reminder.git
+cd drink-reminder
 
 # 创建虚拟环境（可选）
 py -3 -m uv venv
