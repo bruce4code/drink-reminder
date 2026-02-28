@@ -16,6 +16,13 @@
 - 🔔 声音提示（Windows）
 - ⏱️ 稍后提醒功能（延迟10分钟）
 
+## 展示
+<img width="452" height="412" alt="image" src="https://github.com/user-attachments/assets/a9e59d31-ad2e-46b5-bf62-4426f4d7da6e" />
+
+<img width="302" height="182" alt="image" src="https://github.com/user-attachments/assets/ab115f6e-1496-424d-94b4-6e9f17098721" />
+
+
+
 ## 📦 安装
 
 ### 前置要求
