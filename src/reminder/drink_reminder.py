@@ -286,11 +286,28 @@ class DrinkReminderGUI:
         )
         close_btn.pack(side=tk.LEFT, padx=4)
         
-        # 播放提示音
+        # 播放提示音（跨平台）
+        self._play_sound()
+        
+        self.root.mainloop()
+    
+    def _play_sound(self):
+        """播放提示音（跨平台）"""
+        import platform
+        system = platform.system()
+        
         try:
-            import winsound
-            winsound.Beep(800, 300)
-        except:
+            if system == "Windows":
+                import winsound
+                winsound.Beep(800, 300)
+            elif system == "Darwin":  # macOS
+                import os
+                os.system('afplay /System/Library/Sounds/Glass.aiff')
+            elif system == "Linux":
+                import os
+                os.system('paplay /usr/share/sounds/freedesktop/stereo/bell.oga 2>/dev/null || beep 2>/dev/null')
+        except Exception as e:
+            # 如果播放失败，静默跳过
             pass
         
         self.root.mainloop()

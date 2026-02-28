@@ -13,8 +13,9 @@
 - 📈 保留最近7天的历史记录
 - 🎨 友好的图形界面
 - 💬 智能鼓励语和进度反馈
-- 🔔 声音提示（Windows）
+- 🔔 声音提示（支持 Windows/macOS/Linux）
 - ⏱️ 稍后提醒功能（延迟10分钟）
+- 🌍 跨平台支持（Windows/macOS/Linux）
 
 ## 展示
 <img width="452" height="412" alt="image" src="https://github.com/user-attachments/assets/a9e59d31-ad2e-46b5-bf62-4426f4d7da6e" />
@@ -27,8 +28,11 @@
 
 ### 前置要求
 
-- Python 3.13 或更高版本
+- Python 3.13 或更高版本（macOS/Linux 用户可使用 Python 3.8+）
 - tkinter（通常随 Python 一起安装）
+  - Windows: 自动包含
+  - macOS: 自动包含
+  - Linux: 可能需要安装 `sudo apt-get install python3-tk`（Ubuntu/Debian）
 
 ### 方法一：使用 uv（推荐）
 
@@ -66,9 +70,25 @@ python main.py
 py -3 -m uv run python main.py
 ```
 
-### Linux/Mac
+### macOS
 
 ```bash
+# 方式1：使用启动脚本
+chmod +x run.sh
+./run.sh
+
+# 方式2：直接运行
+python3 main.py
+```
+
+### Linux
+
+```bash
+# 方式1：使用启动脚本
+chmod +x run.sh
+./run.sh
+
+# 方式2：直接运行
 python3 main.py
 ```
 
@@ -139,10 +159,19 @@ reminder/
 
 ## 🛠️ 技术栈
 
-- Python 3.13+
-- tkinter（GUI界面）
+- Python 3.13+ (兼容 3.8+)
+- tkinter（GUI界面，跨平台）
 - json（数据存储）
 - threading（后台任务）
+- platform（平台检测）
+
+## 🌍 平台兼容性
+
+| 平台 | 支持状态 | 声音提示 | 备注 |
+|------|---------|---------|------|
+| Windows | ✅ 完全支持 | ✅ winsound | 使用 run.bat 启动 |
+| macOS | ✅ 完全支持 | ✅ afplay | 使用 run.sh 启动 |
+| Linux | ✅ 完全支持 | ✅ paplay/beep | 使用 run.sh 启动 |
 
 ## 🤝 贡献
 
