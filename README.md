@@ -1,13 +1,13 @@
 # 💧 喝水提醒程序
 
-一个简单实用的喝水提醒工具，帮助你养成良好的喝水习惯。
+一个简单实用的喝水提醒工具，帮助你养成良好的喝水习惯。每天 9:30-18:30 工作时间段自动提醒。
 
 [![Python Version](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## ✨ 功能特点
 
-- ⏰ 14:00后每30分钟自动提醒
+- ⏰ 每天 9:30-18:30 每30分钟自动提醒
 - 📊 统计每日喝水次数和进度
 - 🎯 每日目标：8杯水
 - 📈 保留最近7天的历史记录
@@ -95,7 +95,7 @@ python3 main.py
 ## 📖 使用说明
 
 1. 程序启动后会在后台运行，监控时间
-2. 14:00后每30分钟（整点和半点）弹出提醒窗口
+2. 每天 9:30-18:30 之间，每30分钟（整点和半点）弹出提醒窗口
 3. 提醒窗口显示：
    - 当前时间
    - 今日喝水进度
@@ -112,7 +112,8 @@ python3 main.py
 可以在 `src/reminder/config.py` 中修改设置：
 
 ```python
-START_HOUR = 14          # 开始提醒的小时
+START_TIME = (9, 30)     # 开始提醒的时间（小时, 分钟）
+END_TIME = (18, 30)      # 结束提醒的时间（小时, 分钟）
 INTERVAL_MINUTES = 30    # 提醒间隔（分钟）
 SNOOZE_MINUTES = 10      # 稍后提醒的分钟数
 DAILY_GOAL = 8           # 每日目标喝水次数

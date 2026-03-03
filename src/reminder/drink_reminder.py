@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 喝水提醒程序
-功能：14:00后每30分钟提醒喝水，统计每日喝水次数
+功能：9:30-18:30每30分钟提醒喝水，统计每日喝水次数
 """
 
 import tkinter as tk
@@ -16,7 +16,8 @@ import threading
 class DrinkReminder:
     def __init__(self):
         self.data_file = "drink_log.json"
-        self.start_hour = 14  # 开始提醒的小时
+        self.start_time = (9, 30)  # 开始提醒时间（小时, 分钟）
+        self.end_time = (18, 30)   # 结束提醒时间（小时, 分钟）
         self.interval_minutes = 30  # 提醒间隔（分钟）
         self.daily_goal = 8  # 每日目标喝水次数
         
@@ -378,7 +379,7 @@ def main():
     print("="*50)
     print("  💧 喝水提醒程序启动")
     print(f"  开始时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"  提醒规则: 14:00后每30分钟提醒一次")
+    print(f"  提醒规则: 9:30-18:30每30分钟提醒一次")
     print("="*50)
     print()
     
@@ -397,8 +398,13 @@ def main():
             current_hour = now.hour
             current_minute = now.minute
             
-            # 检查是否在提醒时间范围内（14:00之后）
-            if current_hour >= 14:
+            # 创建当前时间对象用于比较
+            current_time = current_hour * 60 + current_minute  # 转换为分钟数
+            start_time_minutes = reminder.start_time[0] * 60 + reminder.start_time[1]
+            end_time_minutes = reminder.end_time[0] * 60 + reminder.end_time[1]
+            
+            # 检查是否在提醒时间范围内（9:30-18:30）
+            if start_time_minutes <= current_time <= end_time_minutes:
                 # 检查是否是整点或半点
                 if current_minute == 0 or current_minute == 30:
                     print(f"[{now.strftime('%H:%M:%S')}] 触发提醒")

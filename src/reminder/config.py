@@ -5,7 +5,8 @@
 """
 
 # 提醒设置
-START_HOUR = 14  # 开始提醒的小时
+START_TIME = (9, 30)  # 开始提醒的时间（小时, 分钟）
+END_TIME = (18, 30)   # 结束提醒的时间（小时, 分钟）
 INTERVAL_MINUTES = 30  # 提醒间隔（分钟）
 SNOOZE_MINUTES = 10  # 稍后提醒的分钟数
 
